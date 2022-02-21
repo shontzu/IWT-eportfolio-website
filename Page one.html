@@ -1,0 +1,154 @@
+<!DOCTYPE html> 
+<html lang="en-US"> 
+	<head>
+		<title>About Me</title>
+		<link rel="stylesheet" href="portfolio design.css"/>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300&display=swap" rel="stylesheet">
+	<body>
+		<!-- First section; header & navigation links. Fixed in all pages -->
+		<header> 					
+			<h1>About Me</h1>
+			<nav class = "topnav">
+				<ul>
+					<li><a href="Page one.html">About Me</a></li>
+					<li><a href="Page two.html">My modules</a></li>
+					<li><a href="Page three.html">My Projects</a></li>
+					<li><a href="Page four.html">Ask me a Question</a></li>
+				</ul>
+			</nav>
+		</header> 
+		<!-- end first section -->
+		
+		<!-- second section; three columns -->
+		<section> 
+			<!-- first column: profile pic -->
+			<div class="threeColumn">
+				<div class="toolTipText">
+					<img src="resources/ProfilePic.jpg" 
+					onclick="alert('You are beautiful when you smile =D')" 
+					alt ="Profile Picture" height="400px"  scrolling="no">
+					<span>I have something to tell you, click me!</span>	
+				</div>
+			</div>
+			
+			<!-- second column: Brief introduction -->
+			<div class="threeColumn"> 
+				<h2 class="glow">Brief introduction</h2>
+				<p class="paraBG1"> <!-- light Bisque -->
+					Experienced working as sales promoter, telemarketer, and 
+					corporate customer service cum event coordinator with two 
+					years of experience in the field of food and beverages. 
+					Currently advancing studies in Multimedia Computing (Hons).
+				</p>
+				<p class="paraBG2"> <!-- medium Bisque -->
+					Strengths: <strong>managing and micromanaging</strong> things, 
+					i.e. task, time, money. <strong>Good observer</strong> with a 
+					keen eye on general etiquette. Willing to do all it takes to work a job 
+					I love eventhough the pay is lower, hence I consider myself 
+					<strong>bold and passionate</strong>. Communicative and sociable. 
+					<strong>Self-aware</strong> of my own strengths and weaknesses
+				</p>
+				<p class="paraBG3"> <!-- dark Bisque -->
+					<strong>Extra-workaholic</strong>: the more I work the happier I become. Prone to
+					depression as I get agitated when idle but stressed when 
+					overloaded with work. <strong>Perfectionist tendencies</strong> and love to learn. 
+				</p>
+			</div>
+
+			<!-- third column: picture segment -->
+			<div>
+			<h2 class="glow">Past experiences with:</h2>
+				<img id="pastExperience" width="300" height="300"/> 
+			</div>			
+		</section> 
+		<!-- end second section -->
+		
+		<!-- third section; links to more info about me -->
+		<section> 
+			<h2 class="glow">Learn about me in more details at:</h2>
+			<nav class = "otherNav">
+				<ul>
+					<li><a href="https://www.16personalities.com/enfj-personality"><strong>MyerBriggs</strong></br>I am ENFJ-A</a></li>
+					<li><a href="https://borneoblogz.files.wordpress.com/2018/03/a2b11-acriticalsummaryoftheucmhp-bydralvinang28onwebsite29.pdf"><strong>Universal Human Profiling</strong></br>my UC number is 4 (Admin)</a></li>
+					<li><a href="https://www.belbin.com/about/team-role-spotlight-resource-investigator/"><strong>Belbin team role (BTRSPI)</strong></br>I am Resource Investigator</a></li>
+					<li><a href="https://my.linkedin.com/in/shontzu"><strong>LinkedIn</strong></br>my professional milestone</a></li>	
+					<li><a href="https://www.discprofiles.com/blog/2018/10/resolute-leadership/"><strong>Thomas International DISC profiling</strong></br>I am a DC-profile</a></li>	
+				</ul>
+			</nav>
+		</section>
+		<!-- end third section -->
+		
+		<!-- fourth section; qualifications table-->
+		<section>
+		<h2 class="glow">My Qualifications table</h2>
+			<table id="QT">
+				<tr> 
+					<th> date </th>
+					<th> details </th>
+					<th> Qualification </th>
+				</tr>
+				<tr> 
+					<td> Sep2019 - Dec2019</td>
+					<td> Sem 2 Business and Multimedia Computing </td>
+					<td> GPA 4.0 </td>
+				</tr>
+				<tr> 
+					<td> Jan2019 - Apr2019 </td>
+					<td> Sem 3 Foundation in Business Information Technology  </td>
+					<td> GPA 3.91 </td>
+				</tr>
+				<tr> 
+					<td> Sep 2018 </td>
+					<td> Malaysian University English Test MUET </td>
+					<td> Band 4 </td>
+				</tr>
+				<tr> 
+					<td> Nov 2017 </td>
+					<td> Cambridge International Examinations (English language) </td>
+					<td> Grade A </td>
+				</tr>
+				<tr> 
+					<td> Oct 2016 </td>
+					<td> The Star NiE (Newspaper-in-Education) poster contest </td>
+					<td> Merits </td>
+				</tr>
+				<tr> 
+					<td> Nov 2015 </td>
+					<td> ACER International Benchmark Test </td>
+					<td> English (Band 7) </br>Mathematics (Band 7)</br>Science (Band 8)</br></td>
+				</tr>
+			</table>
+		</section> 
+		<!-- end fourth section -->
+		
+		<!-- last section; footer. fixed in all pages -->
+		<footer>
+			Keoy Shon Tzu | YPC ID: BMC1904254 | LJMU ID: 897147 | Wallpaper: created on Adobe Photoshop
+		</footer> 
+	</body>
+
+	<script>
+		var navbar = document.querySelector("nav");
+		var sticky = navbar.offsetTop;
+		window.onscroll = function () {
+		  if (window.pageYOffset >= sticky-50) {
+			navbar.classList.add("effect"); <!--apply sticky effect to topnav class-->
+			target.css('background-color', 'rgba(255, 255, 255, 1)');
+		  } else {
+			navbar.classList.remove("effect");
+			target.css('background-color', 'rgba(255, 255, 255, 1)');
+		  }
+		};
+		
+			window.onload = function() {
+			var image=document.getElementById("pastExperience");
+			var img_array=["resources/Mahnee.png", "resources/SekYuen.png","resources/OneDayPilot.png","resources/Diva.png"];
+			var index=0;
+			var interval = 2000;
+			function slide() {
+				image.src = img_array[index++%img_array.length];
+			}
+			setInterval(slide, interval);
+		}
+	</script>
+</html>

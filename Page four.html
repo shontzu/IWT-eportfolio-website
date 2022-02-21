@@ -1,0 +1,143 @@
+<!DOCTYPE html> 
+<html>
+	<head>
+		<title>Ask Me a Question</title>
+		<link rel="stylesheet" href="portfolio design.css"/>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300&display=swap" rel="stylesheet">
+	</head>
+	
+	<body>
+		<header> <!-- the header section will have the navigation links. Fixed in all pages -->					
+			<h1>Ask Me a Question</h1>
+			<nav class = "topnav">
+				<ul>
+					<li><a href="Page one.html">About Me</a></li>
+					<li><a href="Page two.html">My modules</a></li>
+					<li><a href="Page three.html">My Projects</a></li>
+					<li><a href="Page four.html">Ask me a Question</a></li>
+				</ul>
+			</nav>
+		</header>
+		<section>  
+			<div class="twoColumns">
+				<button type=button id="strtVid" onclick='getStream()' style="display:block;">Record</button>
+				<button type=button id="stpVid" onclick='stopRecorder()' style="display:block">Stop</button>
+			</div>
+		   
+			<div class="twoColumns">
+				<video autoplay id="vid1" style="height:200px; width: 400px;" poster="resources/camera.png"></video>
+				<video id="vid2" muted="muted" style="display:block; height:200px; width: 400px"></video>
+			</div>
+		</section>
+		
+		<footer> <!-- Last section; footer, contains student info. Fixed in all pages -->
+			Keoy Shon Tzu | YPC ID: BMC1904254 | LJMU ID: 897147 | Wallpaper: created on Adobe Photoshop
+		</footer> 
+	</body>
+
+		<script>
+		var navbar = document.querySelector("nav");
+		var sticky = navbar.offsetTop;
+		window.onscroll = function () {
+		  if (window.pageYOffset >= sticky-50) {
+			navbar.classList.add("effect"); <!--apply sticky effect to topnav class-->
+			target.css('background-color', 'rgba(255, 255, 255, 1)');
+		  } else {
+			navbar.classList.remove("effect");
+			target.css('background-color', 'rgba(255, 255, 255, 1)');
+		  }
+		};
+		
+		 // script for recording Video and real time Uploading to server and local machine
+			function getUserMedia(options, successCallback, failureCallback) {
+				var api = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+				if (api) {
+					return api.bind(navigator)(options, successCallback, failureCallback);
+				}
+				alert('User Media API not supported.');
+			}
+			
+			var theStream;
+			var theRecorder;
+			var recordedChunks = [];
+			var mediaSource = new MediaSource();
+			var sourceBuffer;
+
+			function getStream() {
+				recordedChunks = [];
+
+				var vid2 = document.getElementById('vid2');
+				//  vid2.src = window.URL.createObjectURL(mediaSource);
+
+				mediaSource.addEventListener('sourceopen', function (e) {
+					sourceBuffer = mediaSource.addSourceBuffer('video/webm; codecs="opus,vp8"');
+				}, false);
+				// vid2.play();
+
+				var constraints = {
+					// video: { width: 1280, height: 720 }, audio: true
+					// video: { width: 384, height: 288 }, audio: true
+					video: {facingMode:"user"}, audio: true
+				};
+
+				getUserMedia(constraints, function (stream) {
+					var mediaControl = document.getElementById('vid1');
+					if (navigator.mozGetUserMedia) {
+						mediaControl.mozSrcObject = stream;
+					} else {
+						mediaControl.srcObject = stream;
+						// mediaControl.src = (window.URL || window.webkitURL).createObjectURL(stream);
+					}
+
+					theStream = stream;
+					try {
+						recorder = new MediaRecorder(stream);
+					} catch (e) {
+						console.error('Exception while creating MediaRecorder: ' + e);
+						return;
+					}
+					theRecorder = recorder;
+					console.log('MediaRecorder created');
+					recorder.ondataavailable = recorderOnDataAvailable;
+					recorder.start(100);
+				}, function (err) {
+					alert('Error: ' + err);
+				});
+			}
+	
+			function recorderOnDataAvailable(event) {
+				if (event.data.size == 0) return;
+				recordedChunks.push(event.data);
+				var reader = new FileReader();
+				reader.addEventListener("loadend", function () {
+					var arr = new Uint8Array(reader.result);
+					sourceBuffer.appendBuffer(arr);
+				});
+				reader.readAsArrayBuffer(event.data);
+			}
+
+			//////////////////////////// Download to user Device ////////////////////////////
+			function download(fileName) {
+			console.log('Saving data');
+				theRecorder.stop();
+				theStream.getTracks()[0].stop();
+				var blob = new Blob(recordedChunks, { type: "video/webm" });
+				var url = (window.URL || window.webkitURL).createObjectURL(blob);
+				var a = document.createElement("a");
+				document.body.appendChild(a);
+				a.style = "display: none";
+				a.href = url;
+				a.download = fileName+".webm";
+				a.click();
+
+				// setTimeout() here is needed for Firefox.
+				setTimeout(function () {
+				(window.URL || window.webkitURL).revokeObjectURL(url);
+				}, 100);
+			}
+			
+			function stopRecorder() {
+				download("myVideo");
+			}
+		</script>	
+</html>

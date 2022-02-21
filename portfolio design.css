@@ -1,0 +1,197 @@
+/*
+	font-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans Condensed', sans-serif;
+*/
+
+body {
+	background-image: url("resources/wallpaper.jpg");
+	background-position: center; /* Center the image */
+	background-repeat: no-repeat; /* Do not repeat the image */
+	background-size: cover;
+	background-attachment: fixed;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 18px;
+	line-height: 25px;
+}
+
+/*HEADER*/
+header, footer {
+	font-family: 'Open Sans', sans-serif;
+	background: white;
+	padding:1% 5%;
+	opacity: 0.7;
+}
+
+header:hover, footer:hover {
+	opacity: 0.9;
+}
+
+nav.effect {
+	position: fixed;
+	top:0;
+	left:0;
+	right:0;
+	padding: 0.5%;
+	transition: background-color 1s ease 0s;
+	box-shadow: 0 0 4px grey;
+	background-color: rgba(255,255,255,1);
+}
+
+.glow {
+	color: #ffffff;
+	text-align: center;
+	-webkit-animation: glow 1s ease-in-out infinite alternate;
+	-moz-animation: glow 1s ease-in-out infinite alternate;
+	animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+	from {
+      text-shadow: 0 0 10px #eeeeee, 0 0 20px #CD853F, 0 0 30px #D2B48C, 0 0 40px #CD853F, 0 0 50px #D2B48C, 0 0 60px #CD853F, 0 0 70px #D2B48C;
+    }
+    to {
+      text-shadow: 0 0 20px #eeeeee, 0 0 30px #F5F5F5, 0 0 40px #F5F5F5, 0 0 50px #F5F5F5, 0 0 60px #F5F5F5, 0 0 70px #F5F5F5, 0 0 80px #F5F5F5;
+    }
+}
+/*END HEADER*/
+
+/*NAVIGATION LINK*/
+li, img {
+	display: inline-block;
+}
+
+.topnav, .otherNav {
+  background-color: rgba(255,255,255,0.5);
+  overflow: hidden;
+} 
+
+.topnav a, .otherNav a {
+  color: saddleBrown;
+  text-align: center;
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 15px;
+  display: inline-block;
+}
+
+.topnav a:hover, .otherNav a:hover {
+	opacity: 0.5;
+}
+/*END NAVIGATION LINK*/
+
+/*CONTAINER*/
+section {
+	color:black;
+	margin; auto;
+	text-align:center;
+	padding: 1% 5%;
+	}
+
+div {
+	margin: auto;
+	display: inline-block; 
+}
+
+.twoColumn { /* format for sections with two columns (two divs)*/
+	width: 40%;
+	height: 40%;
+	display: inline-block;
+}
+
+.threeColumn { /* format for sections with three columns (three divs)*/
+	width: 30%;
+	height: 30%;
+	display: inline-block;
+}
+
+.paraBG1 {
+	background-color: rgba(222,184,135,0.5); /*burlyWood background color for parragraph*/
+}
+
+.paraBG2 {
+	background-color: rgba(255,228,196,0.5); /*bisque background color for parragraph*/
+}
+
+.paraBG3 {
+	background-color: rgba(255,255,255,0.5); /*white background color for parragraph*/
+}
+
+img:hover, p:hover {
+	opacity:0.8;
+}
+/*END CONTAINER*/
+
+/*QUALIFICATIONS TABLE*/
+#QT {
+	width:90%; margin-left:5%; margin-right:5%
+	color:black;
+	background-color:white;
+	opacity:0.8;
+}
+
+th, tr {
+	border-bottom: 1px solid #ddd;
+	background-color: bisque;
+}
+
+tr:hover {
+	background-color: white;
+	opacity:0.6;
+}
+/*END QUALIFICATIONS TABLE*/
+
+/*TOOL TIP (show text on mouse-over-image hover)*/
+div.toolTipText span {
+	display: none; 
+	position: absolute; 
+	background: rgba(0,0,0,0.5); 
+	color: #fff; 
+}
+
+div.toolTipText:hover span {
+	display: block; 
+}
+/*END TOOL TIP*/
+
+/*CUSTOMIZING BUTTONS*/
+button {
+	border-radius: 50%;
+	border: 0.5px solid #000000; /* black */
+    cursor: pointer;
+    height: 48px;
+    outline: none;
+    padding: 0;
+    width: 48px;
+}
+
+button:hover {
+	background-color:white;
+	border-radius: 50%;
+}
+/*END CUSTOMIZING BUTTONS*/
+
+/* SPEECH SYNTHESIS*/
+#play {
+    background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/play.svg);
+}
+
+#play.played {
+    background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/play1.svg);
+}
+
+#pause {
+    background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/pause.svg);
+}
+
+#pause.paused {
+    background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/pause1.svg);
+}
+
+#stop {
+    background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/stop.svg);
+}
+
+#stop.stopped {
+    background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/stop1.svg);
+}
+/*END SPEECH SYNTHESIS*/

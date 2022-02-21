@@ -1,0 +1,157 @@
+<!DOCTYPE html> 
+<html> 
+	<head>
+		<title>My Modules</title>
+		<link rel="stylesheet" href="portfolio design.css"/>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300&display=swap" rel="stylesheet">
+	</head>
+	
+	<body>
+		<!-- First section; header & navigation links. Fixed in all pages -->
+		<header>				
+			<h1>My Modules</h1>
+			<nav class = "topnav">
+				<ul>
+					<li><a href="Page one.html">About Me</a></li>
+					<li><a href="Page two.html">My modules</a></li>
+					<li><a href="Page three.html">My Projects</a></li>
+					<li><a href="Page four.html">Ask me a Question</a></li>
+				</ul>
+			</nav>
+		</header> 
+		<!-- end first section -->
+		
+		<!-- Second section; module one-->
+		<section>
+			<div> 
+				<h2 class="glow"> Fundamentals of Multimedia Computing <overview> </h2>
+				<table style="text-align:left">
+				<tr> 
+					<th> Aim </th>
+					<td> To link theory and practice by providing practical experience of developing multimedia elements using a variety of tools</br>
+						 To integrate the theory and practice of multimedia development through design
+					</td>
+				</tr>				
+				<tr> 
+					<th> Outcome </th>
+					<td> Develop applications that use multimedia data types appropriately.</br>
+						 Design and develop integrated multimedia applications.</br>
+						 Explain and characterise the various types of multimedia data
+					</td>
+				</tr>
+				<tr> 
+					<th> Component</th>
+					<td> This module is more practical than lecture based, with the former having 33 contact hours and the latter only 22 contact hours</td>
+				</tr>
+				<tr> 
+					<th>Outcomes </th>
+					<td>Upon completion of the module I have acquired the fundamental skill in using Adobe softwares such as</br>
+						Photoshop and Illustrator, as well as Flash to create desired products such as shown in the pictures below</br>
+						among some of the forms of products created includes 3D rendering, 2D animation, and graphic manipulation</td>
+				</tr>
+				</table>
+			</div> 
+		</section>
+		<!-- End second section -->
+
+		<!-- Third section; Three columns-->		
+		<section>
+			<div> <!-- column one -->
+				<img class="EarthSlide" src="resources/3D 1.jpg" width="400" height="250">
+				<img class="EarthSlide" src="resources/3D 3.jpg" width="400" height="250">
+				<img class="EarthSlide" src="resources/3D 2.jpg" width="400" height="250">
+				<button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+				<button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>
+
+			</div>		
+			<div class="toolTipText"> <!-- column two -->	
+				<a href="Page three.html"><img id="bitmap" width="250" height="400"/></a>
+				<span>Click to see project details</span>
+			</div>
+			<div> <!-- column three -->
+				<video src="resources/Merry Christmas.mp4" width="400" height="400" controls loop></video>
+			</div>		
+		</section>
+		<!-- end third section -->
+		
+		<!-- fourth section -->
+		<section>
+			<div> 
+				<h2 class="glow"> Visual Basic Programming <overview> </h2>
+				<table style="text-align:left">
+				<tr> 
+					<th> Aim </th>
+					<td> To enable the students to use efficient programming techniques and methodical approach 
+					in understanding and learning structured software development using Event-Driven language 
+</td>
+				</tr>				
+				<tr> 
+					<th> Outcome </th>
+					<td> Program using Visual Basic</br>
+						 Understand the benefits of IDE in systems development. </br>
+						 Identify the different categories of programming tools, language level and techniques.</br>
+					</td>
+				</tr>
+				<tr> 
+					<th> Component</th>
+					<td> This module is more practical than lecture based, with the former having 33 contact hours and the latter with only 22 contact hours</td>
+				</tr>
+				<tr> 
+					<th>Outcomes </th>
+					<td>Upon completion of the module I have acquired the fundamental skill in using Adobe softwares such as</br>
+						Photoshop and Illustrator, as well as Flash to create desired products such as shown in the pictures below</br>
+						among some of the forms of products created includes 3D rendering, 2D animation, and graphic manipulation</td>
+				</tr>
+				</table>
+			</div> 
+		</section>
+		<!-- end fourth section -->
+		
+		<!-- last section; footer. fixed in all pages -->
+		<footer>
+			Keoy Shon Tzu | YPC ID: BMC1904254 | LJMU ID: 897147 | Wallpaper: created on Adobe Photoshop
+		</footer> 
+	</body>
+	
+	<script>
+		var navbar = document.querySelector("nav");
+		var sticky = navbar.offsetTop;
+		window.onscroll = function () {
+		  if (window.pageYOffset >= sticky-50) {
+			navbar.classList.add("effect"); <!--apply sticky effect to topnav class-->
+			target.css('background-color', 'rgba(255, 255, 255, 1)');
+		  } else {
+			navbar.classList.remove("effect");
+		  }
+		};
+					
+		var slideIndex = 1;
+		showDivs(slideIndex);
+
+		function plusDivs(n) {
+		  showDivs(slideIndex += n);
+		}
+
+		function showDivs(n) {
+		  var i;
+		  var x = document.getElementsByClassName("EarthSlide");
+		  if (n > x.length) {slideIndex = 1}
+		  if (n < 1) {slideIndex = x.length} ;
+		  for (i = 0; i < x.length; i++) {
+			x[i].style.display = "none";
+		  }
+		  x[slideIndex-1].style.display = "block";
+		}
+			
+			window.onload = function() {
+			var image=document.getElementById("bitmap");
+			var img_array=["resources/bitmap 4.1.jpg", "resources/bitmap 4.2.jpg"];
+			var index=0;
+			var interval = 2000;
+			function slide() {
+				image.src = img_array[index++%img_array.length];
+			}
+			setInterval(slide, interval);
+		}
+	</script>
+</html>
